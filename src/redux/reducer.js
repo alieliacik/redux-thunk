@@ -6,9 +6,6 @@ const productReducer = (state = initialState, { type, payload }) => {
     case actionTypes.SET_PRODUCTS_REQUEST:
       return {
         ...state,
-        // products: payload,
-        // loading: false,
-        // error: null,
       }
     case actionTypes.SET_PRODUCTS_RECEIVE:
       return {
@@ -17,19 +14,25 @@ const productReducer = (state = initialState, { type, payload }) => {
         loading: false,
         error: null,
       }
-    case actionTypes.SET_PRODUCTS_RECEIVE:
+    case actionTypes.SET_PRODUCTS_FAIL:
       return {
         ...state,
-        products: payload,
-        loading: false,
+        error: payload,
+      }
+    case actionTypes.PRODUCT_DETAILS_REQUEST:
+      return {
+        ...state,
         error: null,
       }
-
-    case actionTypes.SELECTED_PRODUCT:
+    case actionTypes.PRODUCT_DETAILS_RECEIVE:
       return {
         ...state,
+        loading: false,
         selectedProduct: payload,
-        loading: false,
+      }
+    case actionTypes.PRODUCT_DETAILS_FAIL:
+      return {
+        ...state,
         error: null,
       }
     case actionTypes.SET_LOADING_ACTION:
@@ -38,12 +41,7 @@ const productReducer = (state = initialState, { type, payload }) => {
         loading: true,
         error: null,
       }
-    case actionTypes.SET_PRODUCT_FAIL:
-      return {
-        ...state,
-        loading: false,
-        error: payload,
-      }
+
     default:
       return state
   }

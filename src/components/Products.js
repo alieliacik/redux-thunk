@@ -6,7 +6,7 @@ const Products = () => {
   const products = useSelector(({ productReducer }) => productReducer.products)
 
   const content = products.map((prod) => {
-    const { title, image, id, price, category } = prod
+    const { title, image, id, price } = prod
     return (
       <LinkContainer key={id}>
         <Link style={{ textDecoration: 'none' }} to={`/product/${id}`}>

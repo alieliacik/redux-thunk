@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { selectedProduct } from '../redux/actions'
+import * as actions from '../redux/actions'
 import CircularProgress from '@mui/material/CircularProgress'
 import styled from 'styled-components'
 
@@ -11,7 +11,7 @@ const ProductDetail = () => {
   const productData = useSelector((state) => state.productReducer)
 
   useEffect(() => {
-    dispatch(selectedProduct(productId))
+    dispatch(actions.setProductDetailsRequest(productId))
   }, [])
 
   let content = (

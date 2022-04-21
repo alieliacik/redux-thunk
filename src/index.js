@@ -1,14 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
-
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux'
-// import ReduxThunk from 'redux-thunk'
-import createSagaMiddleware from 'redux-saga'
 import { Provider } from 'react-redux'
 import productReducer from './redux/reducer'
+import createSagaMiddleware from 'redux-saga'
+
 import mySaga from './redux/sagas'
 
 // const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
