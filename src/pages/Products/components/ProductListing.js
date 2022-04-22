@@ -1,10 +1,10 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import styled from 'styled-components'
-import Products from './Products'
 import * as actions from '../redux/actions'
 import CircularProgress from '@mui/material/CircularProgress'
 
+import Products from './Products'
+import {StyledProductListing, LoadingContainer} from '../styles/StyledProductListing'
 const ProductListing = () => {
   const dispatch = useDispatch()
   const products = useSelector((state) => state.products)
@@ -30,14 +30,3 @@ const ProductListing = () => {
 
 export default ProductListing
 
-const StyledProductListing = styled.div`
-  display: flex;
-`
-
-const LoadingContainer = styled.div`
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`

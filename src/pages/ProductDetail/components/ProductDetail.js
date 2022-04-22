@@ -10,7 +10,7 @@ import {
   Image,
   Description,
   Price,
-} from '../styles'
+} from '../styles/StyledProductDetails'
 
 const ProductDetail = () => {
   const dispatch = useDispatch()
