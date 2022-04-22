@@ -15,10 +15,3 @@ export const setProductsFail = (error) => ({
   type: actionTypes.SET_PRODUCTS_FAIL,
   payload: error,
 })
-
-export const toggleFavorite = (productId) => {
-  return {
-    type: actionTypes.TOGGLE_FAVOURITE,
-    payload: productId,
-  }
-}

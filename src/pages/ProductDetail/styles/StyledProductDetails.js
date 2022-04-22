@@ -13,6 +13,7 @@ export const StyledProductDetails = styled.div`
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   margin-top: 30px;
   border-radius: 10px;
+  position: relative;
 `
 
 export const Title = styled.h2`
@@ -35,4 +36,16 @@ export const Category = styled.h5`
 export const Description = styled.div`
   font-size: 14px;
   margin: 20px;
+`
+
+export const DetailsContainer = styled.div`
+  & svg {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    font-size: 40px;
+    color: red;
+    opacity: ${({ isFav }) => (isFav ? '1' : '0.4')};
+    cursor: pointer;
+  }
 `

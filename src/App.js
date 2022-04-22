@@ -4,7 +4,7 @@ import { PersistGate } from 'redux-persist/integration/react'
 
 import store, { persistor } from './redux/store'
 import ProductListing from './pages/Products/components/ProductListing'
-import ProductDetail from './pages/ProductDetail/components/ProductDetail'
+import ProductDetail from './pages/ProductDetail/components/ProductDetails'
 
 function App() {
   return (

@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import StarIcon from '@mui/icons-material/Star'
 
-import * as actions from '../redux/actions'
+import * as sharedActions from '../../redux/actions'
 
 import {
   StyledProducts,
@@ -15,12 +15,13 @@ import {
 const Products = () => {
   const dispatch = useDispatch()
   const products = useSelector((state) => state.products)
+  const favs = useSelector((state) => state.shared.favs)
 
   const content = products.products.map((prod) => {
     const { title, image, id, price } = prod
     return (
-      <LinkContainer key={id} isFav={products.favs.includes(id)}>
-        <StarIcon onClick={() => dispatch(actions.toggleFavorite(id))} />
+      <LinkContainer key={id} isFav={favs.includes(id)}>
+        <StarIcon onClick={() => dispatch(sharedActions.toggleFavorite(id))} />
         <Link style={{ textDecoration: 'none' }} to={`/product/${id}`}>
           <Image src={image} />
           <Title>{title}</Title>
