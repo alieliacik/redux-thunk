@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import Products from './Products'
 import { setProductsRequest } from '../redux/actions'
 import CircularProgress from '@mui/material/CircularProgress'
+import axios from 'axios'
 
 const ProductListing = () => {
   const dispatch = useDispatch()

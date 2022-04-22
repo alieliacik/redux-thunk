@@ -2,15 +2,9 @@ import { call, put, takeLatest, takeEvery } from 'redux-saga/effects'
 import axios from 'axios'
 import actionTypes from './actionTypes'
 import * as actions from './actions'
+import cts from '../crud/cts'
 
-const fetchProducts = async () => {
-  try {
-    const res = await axios.get('https://fakestoreapi.com/products')
-    return { data: res.data, error: null }
-  } catch (error) {
-    return { data: null, error: error.message }
-  }
-}
+const fetchProducts = async () => cts('get', '/products')
 
 function* getProductsSaga() {
   yield put(actions.setLoadingAction())
@@ -23,17 +17,8 @@ function* getProductsSaga() {
   }
 }
 
-const fetchProductDetails = async (productId) => {
-  console.log(productId)
-  try {
-    const res = await axios.get(
-      `https://fakestoreapi.com/products/${productId}`
-    )
-    return { data: res.data, error: null }
-  } catch (error) {
-    return { data: null, error: error.message }
-  }
-}
+const fetchProductDetails = async (productId) =>
+  cts('get', `/products/${productId}`)
 
 function* getProductDetailsSaga({ payload }) {
   yield put(actions.setLoadingAction())
