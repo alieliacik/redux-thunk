@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 const Products = () => {
-  const products = useSelector(({ productReducer }) => productReducer.products)
+  const products = useSelector((state) => state.products.products)
 
   const content = products.map((prod) => {
     const { title, image, id, price } = prod

@@ -1,7 +1,7 @@
 import actionTypes from './actionTypes'
 import initialState from './store'
 
-const productReducer = (state = initialState, { type, payload }) => {
+const productsReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case actionTypes.SET_PRODUCTS_REQUEST:
       return {
@@ -19,27 +19,11 @@ const productReducer = (state = initialState, { type, payload }) => {
         ...state,
         error: payload,
       }
-    case actionTypes.PRODUCT_DETAILS_REQUEST:
-      return {
-        ...state,
-        error: null,
-      }
-    case actionTypes.PRODUCT_DETAILS_RECEIVE:
-      return {
-        ...state,
-        loading: false,
-        selectedProduct: payload,
-      }
-    case actionTypes.PRODUCT_DETAILS_FAIL:
-      return {
-        ...state,
-        error: null,
-      }
+
     case actionTypes.SET_LOADING_ACTION:
       return {
         ...state,
         loading: true,
-        error: null,
       }
 
     default:
@@ -47,4 +31,4 @@ const productReducer = (state = initialState, { type, payload }) => {
   }
 }
 
-export default productReducer
+export default productsReducer

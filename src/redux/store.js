@@ -1,8 +1,19 @@
-const initialState = {
-  products: [],
-  selectedProduct: {},
-  error: null,
-  loading: false,
-}
+import { createStore, applyMiddleware, compose } from 'redux'
 
-export default initialState
+import createSagaMiddleware from 'redux-saga'
+
+import rootReducer from './rootReducer'
+import rootSaga from './rootSaga'
+
+const sagaMiddleware = createSagaMiddleware()
+// const store = createStore(
+//   rootReducer,
+//   // composeEnhancers(applyMiddleware(ReduxThunk))
+//   composeEnhancers(applyMiddleware(sagaMiddlaware))
+// )
+
+const store = createStore(rootReducer, applyMiddleware(sagaMiddleware))
+
+sagaMiddleware.run(rootSaga)
+
+export default store

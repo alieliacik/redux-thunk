@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Switch } from 'react-router-dom'
 
-import ProductListing from './components/ProductListing'
-import ProductDetail from './components/ProductDetail'
+import ProductListing from './pages/Products/components/ProductListing'
+import ProductDetail from './pages/ProductDetail/components/ProductDetail'
 
 function App() {
   return (

@@ -1,7 +1,6 @@
 import axios from 'axios'
 
 const cts = async (method = 'get', endpoint, payload) => {
-  console.log(process.env.REACT_APP_API_BASE_URL)
   try {
     const res = await axios({
       method,
