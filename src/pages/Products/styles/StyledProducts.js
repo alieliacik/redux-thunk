@@ -21,7 +21,8 @@ export const LinkContainer = styled.div`
 
   & svg {
     position: absolute;
-    right: 7px;
+    right: 3px;
+    top: 3px;
     color: red;
     opacity: ${({ isFav }) => (isFav ? '1' : '0.4')};
     cursor: pointer;

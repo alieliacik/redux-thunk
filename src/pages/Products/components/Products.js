@@ -15,7 +15,7 @@ import {
 const Products = () => {
   const dispatch = useDispatch()
   const products = useSelector((state) => state.products)
-  console.log(products.favs)
+
   const content = products.products.map((prod) => {
     const { title, image, id, price } = prod
     return (
