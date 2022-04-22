@@ -7,6 +7,7 @@ export const StyledProducts = styled.div`
 `
 
 export const LinkContainer = styled.div`
+  position: relative;
   width: 23%;
   border-radius: 5px;
   margin: 1%;
@@ -16,6 +17,18 @@ export const LinkContainer = styled.div`
 
   &:hover {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+
+  & svg {
+    position: absolute;
+    right: 7px;
+    color: red;
+    opacity: 0.4;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 `
 export const Title = styled.h6`

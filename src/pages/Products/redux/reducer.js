@@ -26,6 +26,12 @@ const productsReducer = (state = initialState, { type, payload }) => {
         ...state,
         loading: true,
       })
+
+    case actionTypes.DELETE_PRODUCT:
+      return Immutable({
+        ...state,
+        products: state.products.filter((prod) => payload !== prod.id),
+      })
     default:
       return state
   }

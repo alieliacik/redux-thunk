@@ -15,3 +15,8 @@ export const setProductsFail = (error) => ({
   type: actionTypes.SET_PRODUCTS_FAIL,
   payload: error,
 })
+
+export const deleteProduct = (productId) => ({
+  type: actionTypes.DELETE_PRODUCT,
+  payload: productId,
+})
