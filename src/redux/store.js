@@ -5,14 +5,13 @@ import createSagaMiddleware from 'redux-saga'
 import rootReducer from './rootReducer'
 import rootSaga from './rootSaga'
 
-const sagaMiddleware = createSagaMiddleware()
-// const store = createStore(
-//   rootReducer,
-//   // composeEnhancers(applyMiddleware(ReduxThunk))
-//   composeEnhancers(applyMiddleware(sagaMiddlaware))
-// )
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
-const store = createStore(rootReducer, applyMiddleware(sagaMiddleware))
+const sagaMiddleware = createSagaMiddleware()
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(sagaMiddleware))
+)
 
 sagaMiddleware.run(rootSaga)
 
