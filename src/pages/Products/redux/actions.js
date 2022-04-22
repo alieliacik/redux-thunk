@@ -16,7 +16,9 @@ export const setProductsFail = (error) => ({
   payload: error,
 })
 
-export const deleteProduct = (productId) => ({
-  type: actionTypes.DELETE_PRODUCT,
-  payload: productId,
-})
+export const toggleFavorite = (productId) => {
+  return {
+    type: actionTypes.TOGGLE_FAVOURITE,
+    payload: productId,
+  }
+}

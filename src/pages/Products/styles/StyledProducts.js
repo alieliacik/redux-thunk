@@ -23,12 +23,8 @@ export const LinkContainer = styled.div`
     position: absolute;
     right: 7px;
     color: red;
-    opacity: 0.4;
+    opacity: ${({ isFav }) => (isFav ? '1' : '0.4')};
     cursor: pointer;
-
-    &:hover {
-      opacity: 1;
-    }
   }
 `
 export const Title = styled.h6`

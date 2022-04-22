@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import DeleteIcon from '@mui/icons-material/Delete'
+import StarIcon from '@mui/icons-material/Star'
 
 import * as actions from '../redux/actions'
 
@@ -14,13 +14,13 @@ import {
 
 const Products = () => {
   const dispatch = useDispatch()
-  const products = useSelector((state) => state.products.products)
-
-  const content = products.map((prod) => {
+  const products = useSelector((state) => state.products)
+  console.log(products.favs)
+  const content = products.products.map((prod) => {
     const { title, image, id, price } = prod
     return (
-      <LinkContainer key={id}>
-        <DeleteIcon onClick={() => dispatch(actions.deleteProduct(id))} />
+      <LinkContainer key={id} isFav={products.favs.includes(id)}>
+        <StarIcon onClick={() => dispatch(actions.toggleFavorite(id))} />
         <Link style={{ textDecoration: 'none' }} to={`/product/${id}`}>
           <Image src={image} />
           <Title>{title}</Title>

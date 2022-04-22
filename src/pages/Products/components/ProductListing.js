@@ -4,7 +4,10 @@ import * as actions from '../redux/actions'
 import CircularProgress from '@mui/material/CircularProgress'
 
 import Products from './Products'
-import {StyledProductListing, LoadingContainer} from '../styles/StyledProductListing'
+import {
+  StyledProductListing,
+  LoadingContainer,
+} from '../styles/StyledProductListing'
 const ProductListing = () => {
   const dispatch = useDispatch()
   const products = useSelector((state) => state.products)
@@ -29,4 +32,3 @@ const ProductListing = () => {
 }
 
 export default ProductListing
-

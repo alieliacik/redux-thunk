@@ -1,37 +1,47 @@
+import Immutable from 'seamless-immutable'
+
 import actionTypes from './actionTypes'
 import initialState from './store'
-import Immutable from 'seamless-immutable'
 
 const productsReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case actionTypes.SET_PRODUCTS_REQUEST:
-      return Immutable({
+      return {
         ...state,
-      })
+      }
+
     case actionTypes.SET_PRODUCTS_RECEIVE:
-      return Immutable({
+      return {
         ...state,
         products: payload,
         loading: false,
         error: null,
-      })
+      }
     case actionTypes.SET_PRODUCTS_FAIL:
-      return Immutable({
+      return {
         ...state,
         error: payload,
-      })
+      }
 
     case actionTypes.SET_LOADING_ACTION:
-      return Immutable({
+      return {
         ...state,
         loading: true,
-      })
+      }
 
-    case actionTypes.DELETE_PRODUCT:
-      return Immutable({
+    case actionTypes.TOGGLE_FAVOURITE:
+      let favs = [...state.favs]
+
+      if (state.favs.includes(payload)) {
+        favs = state.favs.filter((item) => item !== payload)
+      } else {
+        favs = [...state.favs, payload]
+      }
+
+      return {
         ...state,
-        products: state.products.filter((prod) => payload !== prod.id),
-      })
+        favs,
+      }
     default:
       return state
   }
