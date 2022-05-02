@@ -29,7 +29,7 @@ const ProductListing = () => {
   }
 
   return <StyledProductListing>
-    <img src={require('../../../image.png')} alt="test" />
+    <img src={require('../../../image.png')} alt="test-1" />
     {content}</StyledProductListing>
 }
 
