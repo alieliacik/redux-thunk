@@ -28,9 +28,7 @@ const ProductListing = () => {
     content = <h3>{products.error}</h3>
   }
 
-  return <StyledProductListing>
-    <img src={require('../../../image.png')} alt="test-1" />
-    {content}</StyledProductListing>
+  return <StyledProductListing>{content}</StyledProductListing>
 }
 
 export default ProductListing
